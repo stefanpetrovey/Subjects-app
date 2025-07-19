@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Subject Page";
+}
+
+@model Subject
+
+<div class="">
+    <div>
+        <div class="d-flex justify-content-between align-items-center mb-4 navbar1">
+            <img src="~/Images/subjects-logo.png" alt="" class="logo-image" />
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="container sub-cont">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="image-wrapper me-3 image2">
+                    <img src="@Model.Image" alt="@Model.Name" class="sub-image2" />
+                </div>
+            </div>
+            <div class="col-md-9">
+                <h3 class=""><b>@Model.Name</b></h3>
+                <span><b>Number of weekly classes: </b>@Model.NumWeeklyClasses</span>
+                <br />
+            </div>
+        </div>
+        <div class="my-3">
+            @Model.Description
+        </div>
+    </div>
+</div>

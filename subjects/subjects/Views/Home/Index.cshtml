@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<Subject>
+
+<div class="index-body">
+<div class="content">
+    <div class="row g-0">
+        <!-- Sidebar -->
+        <div class="col-md-2 p-3 sidebar1">
+            <img src="~/Images/subjects-logo.png" alt="" class="logo-image"/>
+            @* <h4 class="mb-4 mx-4">Subjects</h4> *@
+            @foreach (var s in Model)
+            {
+                <a href="#" class="d-block mb-3 mx-4 text-decoration-none text-dark">@s.Name</a>
+            }
+        </div>
+
+        <!-- Main content -->
+        <div class="col-md-10">
+            <!-- Overview and Search -->
+            <div class="d-flex justify-content-between align-items-center mb-4 navbar1">
+                <h2 class="mb-0 overview"><b>Overview</b></h2>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+
+            <!-- Subject Cards -->
+            <div class="content sub-cards">
+                <h2 class="text-white mb-4">My Subjects</h2>
+                @foreach (var subject in Model)
+                {
+                    <a asp-action="Subject" asp-route-id="@subject.Id" class="text-decoration-none text-dark">
+                        <div class="subject-card rounded-3 mb-4 p-3 bg-white d-flex align-items-start hover-card">
+                            <div class="image-wrapper me-3">
+                                <img src="@subject.Image" alt="@subject.Name" class="sub-image" />
+                            </div>
+                            <div class="texts-sub">
+                                <h4>@subject.Name</h4>
+                                <p class="clamp-description">@subject.Description</p>
+                            </div>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
